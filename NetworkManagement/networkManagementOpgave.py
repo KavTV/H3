@@ -81,6 +81,9 @@ def get_snmp(target, oid):
 #Simplified get bulk
 def bulk_snmp(target, oids, count):
     return get_bulk(target, oids, hlapi.CommunityData('ciscolab'), count)
+
+def auto_bulk_snmp(target, oids, count):
+    return get_bulk_auto(target, oids, hlapi.CommunityData('ciscolab'), count)
     
 
 
@@ -105,8 +108,9 @@ def cast(value):
                 pass
     return value
 
-def snmp_intafaces():
-    foundinterfaces = bulk_snmp('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], 25)
+def snmp_interfaces():
+    #The '1.3.6.1.2.1.2.1.0' is the amount of interfaces available
+    foundinterfaces = auto_bulk_snmp('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], '1.3.6.1.2.1.2.1.0')
     interfaces = []
     for dic in foundinterfaces:
         intface = interface("fastEthernet0/1","down")
@@ -121,6 +125,9 @@ def snmp_intafaces():
             else:
                 intface.interface = v
         interfaces.append(intface)
+
+    #Remove the null interface
+    interfaces.pop(interfaces.__len__() -1)
     return interfaces
 
 def snmp_vlans():
@@ -248,21 +255,21 @@ def getInterfaceColor(status):
         return "gray"
 
 #Engine that is used for the reciever
-snmp_engine = engine.SnmpEngine()
+snmpengine = engine.SnmpEngine()
 
 def trap_work():
     t = trap()
-    t.start(snmp_engine, notif)
+    t.start(snmpengine, notif)
     
 def closeWindow():
-    snmp_engine.transportDispatcher.jobFinished(1)
+    snmpengine.transportDispatcher.jobFinished(1)
     window.destroy()
 
 #Start the window
 window = tk.Tk()
 
 #Lets get the initial interfaces and vlans
-interfaces = snmp_intafaces()
+interfaces = snmp_interfaces()
 vlans = snmp_vlans()
 
 init_layout(interfaces,vlans)
@@ -275,6 +282,7 @@ trapthread.start()
 
 #Refer to closewindow method when window is closed
 window.protocol("WM_DELETE_WINDOW", closeWindow)
+
 
 
 
