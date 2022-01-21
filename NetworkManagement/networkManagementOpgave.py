@@ -278,12 +278,4 @@ window.protocol("WM_DELETE_WINDOW", closeWindow)
 
 
 
-foundinterfaces2 = get_bulk_auto('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], 25)
-
-for dic in foundinterfaces2:
-    intface = interface("fastEthernet0/1","down")
-    for k, v in dic.items():
-        print(v)
-
-
 window.mainloop()
