@@ -12,6 +12,10 @@ class interface:
         self.interface = interface 
         self.status = status
 
+class vlan:
+    def __init__(self, name): 
+        self.name = name 
+
 cisco_881 = {
     'device_type': 'cisco_ios',
     'host':   '172.16.4.2',
@@ -23,7 +27,7 @@ cisco_881 = {
 
 net_connect = ConnectHandler(**cisco_881)
 
-
+#The usual get snmp get command
 def get(target, oids, credentials, port=161, engine=hlapi.SnmpEngine(), context=hlapi.ContextData()):
     handler = hlapi.getCmd(
         engine,
@@ -34,7 +38,7 @@ def get(target, oids, credentials, port=161, engine=hlapi.SnmpEngine(), context=
     )
     return fetch(handler, 1)[0]
 
-
+#Get a bulk of information from oids
 def get_bulk(target, oids, credentials, count, start_from=0, port=161,
              engine=hlapi.SnmpEngine(), context=hlapi.ContextData()):
     handler = hlapi.bulkCmd(
@@ -53,6 +57,7 @@ def get_bulk_auto(target, oids, credentials, count_oid, start_from=0, port=161,
     count = get(target, [count_oid], credentials, port, engine, context)[count_oid]
     return get_bulk(target, oids, credentials, count, start_from, port, engine, context)
 
+#Get the specific oids values
 def fetch(handler, count):
     result = []
     for i in range(count):
@@ -69,9 +74,11 @@ def fetch(handler, count):
             break
     return result
 
+#Simplified get
 def get_snmp(target, oid):
     return get(target, oid, hlapi.CommunityData('ciscolab'))
 
+#Simplified get bulk
 def bulk_snmp(target, oids, count):
     return get_bulk(target, oids, hlapi.CommunityData('ciscolab'), count)
     
@@ -99,9 +106,9 @@ def cast(value):
     return value
 
 def snmp_intafaces():
-    foundInterfaces = bulk_snmp('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], 25)
+    foundinterfaces = bulk_snmp('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], 25)
     interfaces = []
-    for dic in foundInterfaces:
+    for dic in foundinterfaces:
         intface = interface("fastEthernet0/1","down")
         for k, v in dic.items():
             if isinstance(v, int):
@@ -116,19 +123,36 @@ def snmp_intafaces():
         interfaces.append(intface)
     return interfaces
 
+def snmp_vlans():
+    foundvlans = bulk_snmp('172.16.4.2',['1.3.6.1.4.1.9.9.46.1.3.1.1.4.1'], 7)
+    vlans = []
+    for dic in foundvlans:
+        lan = vlan("")
+        for k, v in dic.items():
+            lan.name = str(v)
+        vlans.append(lan)
+    return vlans
+
+
+def send_interface_shutdown_task(interface):
+    shutdownthread = Thread(target=send_interface_shutdown, args=(interface,))
+    shutdownthread.start()
+    
+
 
 def send_interface_shutdown(interface):
     net_connect.enable()
     net_connect.config_mode()
     net_connect.send_command_timing("interface " + interface.interface)
+
     if  interface.status == "up":
         print("CLOSING PORT")
         net_connect.send_command_timing("shutdown")
-    elif interface.status == "down":
+    elif interface.status == "down" or "administratively down":
         print("OPENING PORT")
         net_connect.send_command_timing("no shutdown")
     else:
-        #Default it shutdown could change this later.
+        #Default is shutdown, could change this later.
         print("CLOSING PORT")
         net_connect.send_command_timing("shutdown")
     #Go back to normal
@@ -136,14 +160,15 @@ def send_interface_shutdown(interface):
     net_connect.exit_config_mode()
     net_connect.exit_enable_mode()
 
+
 buttons = []
 
 def generate_port_layout(interfaces):
-    _grid_row = 0
-    _grid_column = 0
+    gridrow = 0
+    gridcolumn = 0
     for interface in interfaces:
-        _grid_column = _grid_column + 1
-
+        gridcolumn = gridcolumn + 1
+    
         #Change the color depending on the status of the interface
         btn_color = getInterfaceColor(interface.status)
 
@@ -153,24 +178,55 @@ def generate_port_layout(interfaces):
             height=5,
             bg=btn_color,
             fg="yellow",
-            command= partial(send_interface_shutdown, interface)
+            command= partial(send_interface_shutdown_task, interface)
         )
-        bt.grid(row=_grid_column, column=_grid_row, padx=10, pady=10)
+        bt.grid(row=gridrow, column= gridcolumn, padx=10, pady=10)
 
         #Save the button to array
         buttons.append(bt)
 
         #We only want a row with 5 columns
-        if _grid_column > 4:
-            _grid_column = 0
-            _grid_row = _grid_row + 1
+        if gridcolumn > 4:
+            gridcolumn = 0
+            gridrow = gridrow + 1
 
 
+def generate_vlan_layout(vlans):
+    gridcolumn = 0
+    gridrow = 8
+
+    headertxt = tk.StringVar()
+    headertxt.set("VLANS")
+    tk.Label(window, textvariable=headertxt).grid(row=7, column= 3, padx=10, pady=10)
+
+    for vlan in vlans:
+        gridcolumn = gridcolumn + 1
+        txt = tk.StringVar()
+        txt.set(vlan.name)
+        tk.Label(window, textvariable=txt).grid(row=gridrow, column= gridcolumn, padx=10, pady=10)
+
+        #We only want a row with 5 columns
+        if gridcolumn > 4:
+            gridcolumn = 0
+            gridrow = gridrow + 1
+
+
+def init_layout(interfaces, vlans):
+    generate_port_layout(interfaces)
+    generate_vlan_layout(vlans)
+
+
+def getButton(text):
+    for item in buttons:
+        if item['text'] == str(text):
+            return item
+
+#This method gets called every time a new trap i recieved
 def notif(snmpEngine, stateReference, contextEngineId, contextName,
                 varBinds, cbCtx):
 
     intface = interface("","")
-    #We only want the oids that refer to the interface name and the status
+    #We only want the oids that refer to the interface name and the status which is those oids
     for name, val in varBinds:
         if "1.3.6.1.4.1.9.2.2.1.1.20.1" in str(name):
             intface.status = str(val)
@@ -179,10 +235,10 @@ def notif(snmpEngine, stateReference, contextEngineId, contextName,
     if intface.interface != "" and intface.status != "":
         getButton(intface.interface).configure(
             bg=getInterfaceColor(intface.status), 
-            command= partial(send_interface_shutdown, intface)
+            command= partial(send_interface_shutdown_task, intface)
         )
 
-    
+
 def getInterfaceColor(status):
     if status == "up":
             return "green"
@@ -192,39 +248,42 @@ def getInterfaceColor(status):
         return "gray"
 
 #Engine that is used for the reciever
-_snmp_engine = engine.SnmpEngine()
+snmp_engine = engine.SnmpEngine()
 
 def trap_work():
     t = trap()
-    t.start(_snmp_engine, notif)
+    t.start(snmp_engine, notif)
     
 def closeWindow():
-    _snmp_engine.transportDispatcher.jobFinished(1)
+    snmp_engine.transportDispatcher.jobFinished(1)
     window.destroy()
 
+#Start the window
 window = tk.Tk()
-text = tk.StringVar()
-text.set("Test")
-label = tk.Label(window, textvariable=text)
-# label = tk.Label(text="Network Management").pack()
 
-
+#Lets get the initial interfaces and vlans
 interfaces = snmp_intafaces()
+vlans = snmp_vlans()
 
-generate_port_layout(interfaces)
-
-
-_trap_thread = Thread(target=trap_work)
-_trap_thread.start()
+init_layout(interfaces,vlans)
 
 
+#Start the trap reciever on a new thread
+trapthread = Thread(target=trap_work)
+trapthread.start()
+
+
+#Refer to closewindow method when window is closed
 window.protocol("WM_DELETE_WINDOW", closeWindow)
 
-# buttons[0].configure(bg="blue")
-def getButton(text):
-    for item in buttons:
-        if item['text'] == str(text):
-            return item
+
+
+foundinterfaces2 = get_bulk_auto('172.16.4.2',['1.3.6.1.2.1.2.2.1.2','1.3.6.1.2.1.2.2.1.8'], 25)
+
+for dic in foundinterfaces2:
+    intface = interface("fastEthernet0/1","down")
+    for k, v in dic.items():
+        print(v)
 
 
 window.mainloop()
