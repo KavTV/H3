@@ -1,0 +1,14 @@
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.exe
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.deps.json
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.dll
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\bin\Debug\netcoreapp3.1\ConsoleBrowser.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.dll
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\ConsoleBrowser\ConsoleBrowser\obj\Debug\netcoreapp3.1\ConsoleBrowser.genruntimeconfig.cache
