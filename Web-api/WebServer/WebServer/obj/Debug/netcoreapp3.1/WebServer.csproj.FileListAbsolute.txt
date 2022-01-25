@@ -1,0 +1,14 @@
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.exe
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.deps.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.dll
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\bin\Debug\netcoreapp3.1\WebServer.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.dll
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\WebServer\WebServer\obj\Debug\netcoreapp3.1\WebServer.genruntimeconfig.cache

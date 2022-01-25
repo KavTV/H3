@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0cfcce67-8dd4-488f-91a6-ae685b138c91": {
+      "ProjectGuid": "0cfcce67-8dd4-488f-91a6-ae685b138c91",
+      "DisplayName": "ConsoleBrowser",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,14 @@
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.exe
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.deps.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.dll
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\bin\Debug\netcoreapp3.1\WebClient.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.dll
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.pdb
+C:\Users\krj\Documents\Github\H3\Web-api\WebClient\WebClient\obj\Debug\netcoreapp3.1\WebClient.genruntimeconfig.cache

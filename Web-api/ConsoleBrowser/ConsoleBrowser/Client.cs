@@ -22,9 +22,9 @@ namespace ConsoleBrowser
 
                 return responseBody;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("SOMETHING WENT WRONG");
+                Console.WriteLine("SOMETHING WENT WRONG.." + e);
             }
             return "";
         }

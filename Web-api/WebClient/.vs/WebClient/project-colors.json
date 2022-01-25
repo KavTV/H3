@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "08b420ce-ed28-44af-a4f1-272de06c351a": {
+      "ProjectGuid": "08b420ce-ed28-44af-a4f1-272de06c351a",
+      "DisplayName": "WebClient",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

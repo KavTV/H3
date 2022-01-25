@@ -9,18 +9,23 @@ namespace ConsoleBrowser
 
         static void Main(string[] args)
         {
-            
-            Client client = new Client();
-            HtmlFormatter formatter = new HtmlFormatter();
+            while (true)
+            {
 
-            //Im using formathtml but i also made formathtmlcompact, that sometimes look prettier
-            string formattedHtml = formatter.FormatHtml(client.getWebsite("https://www.lipsum.com/").Result);
+                Client client = new Client();
+                HtmlFormatter formatter = new HtmlFormatter();
 
-            Console.WriteLine(formattedHtml);
+                Console.WriteLine("INPUT WEBSITE");
+                string input = Console.ReadLine();
+                //Im using formathtml but i also made formathtmlcompact, that sometimes look prettier
+                string formattedHtml = formatter.FormatHtml(client.getWebsite(input).Result);
 
-            Console.ReadLine();
+                Console.WriteLine(formattedHtml);
+
+                Console.ReadLine();
+            }
         }
 
-        
+
     }
 }
