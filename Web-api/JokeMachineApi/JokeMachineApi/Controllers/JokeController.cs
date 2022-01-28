@@ -14,9 +14,10 @@ namespace JokeMachineApi.Controllers
         //REMEMBER TO USE SWAGGER FOR EASY TEST OF API: https://localhost:7134/swagger/index.html
         //AZURE LINK: https://jokemachineapi20220127153417.azurewebsites.net/api/Jokes
 
-        // GET: api/<JokeController>
-        [HttpGet]
+
+        // GET: api/Joke
         //[Authorize] Can use authorize if we want this method to only be accesed by people with a jwt token
+        [HttpGet]
         public IActionResult Get()
         {
             //Get the language of the request
@@ -90,7 +91,7 @@ namespace JokeMachineApi.Controllers
             }
         }
 
-        // GET api/<JokeController>/5
+        // GET api/GetCategories
         [HttpGet]
         [Route("GetCategories")]
         public IEnumerable<string> GetCategories()
@@ -101,7 +102,7 @@ namespace JokeMachineApi.Controllers
         }
 
         //HERE YOU CAN CHANGE SETTINGS 
-        // POST api/<JokeController>
+        // POST api/Joke
         [HttpPost]
         public void Post([FromQuery] string category)
         {
@@ -115,7 +116,8 @@ namespace JokeMachineApi.Controllers
             }
         }
 
-        // DELETE api/<JokeController>
+        //DELETE THE COOKIE WITH FAVORITE CATEGORY
+        // DELETE api/Joke
         [HttpDelete()]
         public void Delete()
         {

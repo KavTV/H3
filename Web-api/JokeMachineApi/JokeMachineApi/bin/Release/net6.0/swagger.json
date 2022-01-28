@@ -32,9 +32,19 @@
             "description": "Success"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Joke"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
       }
     },
-    "/api/Joke/api/GetCategories": {
+    "/api/Joke/GetCategories": {
       "get": {
         "tags": [
           "Joke"
@@ -57,24 +67,42 @@
         }
       }
     },
-    "/api/Joke/{id}": {
-      "delete": {
+    "/api/Login": {
+      "post": {
         "tags": [
-          "Joke"
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
         ],
         "parameters": [
           {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserModel"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserModel": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
         }
       }
     }
