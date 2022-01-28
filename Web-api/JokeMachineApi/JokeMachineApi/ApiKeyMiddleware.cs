@@ -23,7 +23,6 @@
 
             //Try to find the api key in the dictionary, if not, then the key does not exist
             //Usually you would search for it in the database
-            //ApiKey apiKey = null;
             apiKeys.apiKeys.TryGetValue(extractedApiKey, out ApiKey apiKey);
 
 

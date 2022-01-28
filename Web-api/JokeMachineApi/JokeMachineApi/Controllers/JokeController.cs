@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Features;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 
@@ -15,12 +16,14 @@ namespace JokeMachineApi.Controllers
 
         // GET: api/<JokeController>
         [HttpGet]
-        public IActionResult Get([FromHeader]string apikey)
+        //[Authorize] Can use authorize if we want this method to only be accesed by people with a jwt token
+        public IActionResult Get()
         {
             //Get the language of the request
             CultureInfo acceptLang = JokeProvider.GetLanguage(HttpContext.Request.Headers.AcceptLanguage);
 
             JokeCategory favCategory = JokeCategory.Any;
+
             //Make sure that we got a favCategory cookie, if not it is considered all categories
             if (Request.Cookies["favCategory"] != null)
             {
@@ -29,6 +32,15 @@ namespace JokeMachineApi.Controllers
             }
 
             List<JokeCategory> allowedCategories = HttpContext.Session.GetObjectFromJson<List<JokeCategory>>("AllowedCategories");
+
+            //If we dont get any allowedCategories then we will only allow dad jokes, since they are bad anyways
+            if (allowedCategories == null)
+            {
+                allowedCategories = new List<JokeCategory>
+                {
+                    JokeCategory.Dad
+                };
+            }
 
             //First we try to find the used jokes in the session, this could be null
             List<Joke> usedJokes = HttpContext.Session.GetObjectFromJson<List<Joke>>("Jokes");
@@ -80,7 +92,7 @@ namespace JokeMachineApi.Controllers
 
         // GET api/<JokeController>/5
         [HttpGet]
-        [Route("api/GetCategories")]
+        [Route("GetCategories")]
         public IEnumerable<string> GetCategories()
         {
             //Eventually only return the categories the api key allows
