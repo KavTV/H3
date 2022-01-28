@@ -22,10 +22,10 @@
                 {
                     JokeCategory.Funny
                 }),
-            new ApiKey(3, "Philip", "06795D9D-A790-44B9-8C2B-FC1BE900591B", new DateTime(2022, 01, 27),
+            new ApiKey(3, "Mikkel", "06795D9D-A790-44B9-8C2B-FC1BE900591B", new DateTime(2022, 01, 27),
                 new List<JokeCategory>
                 {
-                    JokeCategory.Dark
+                    JokeCategory.Dad
                 }),
 
         };

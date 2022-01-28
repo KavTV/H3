@@ -24,24 +24,24 @@ namespace JokeMachineApi
         /// </summary>
         /// <param name="usedJokes">List with already used jokes</param>
         /// <returns>A joke that the user have not seen</returns>
-        public static Joke GetRandomJoke(List<Joke> usedJokes, Language language, List<JokeCategory> allowedCategories)
+        public static Joke GetRandomJoke(List<Joke> usedJokes, CultureInfo language, List<JokeCategory> allowedCategories)
         {
             //Get the jokes user have not seen yet
             List<Joke> jokes = GetRemainingJokes(usedJokes);
 
             //Now filter out all jokes that do not have the preferred language and only show allowed categories
-            jokes = jokes.FindAll(joke => joke.Language == language && allowedCategories.Contains(joke.Category));
+            jokes = jokes.FindAll(joke => joke.CultureInfo.Name == language.Name && allowedCategories.Contains(joke.Category));
 
             return RandomJoke(jokes);
         }
 
-        public static Joke GetRandomJokeFromCategory(List<Joke> usedJokes, Language language, JokeCategory category)
+        public static Joke GetRandomJokeFromCategory(List<Joke> usedJokes, CultureInfo language, JokeCategory category)
         {
             //Get the jokes user have not seen yet
             List<Joke> jokes = GetRemainingJokes(usedJokes);
 
             //Now filter out all jokes that do not have the preferred language
-            jokes = jokes.FindAll(joke => joke.Language == language && joke.Category == category);
+            jokes = jokes.FindAll(joke => joke.CultureInfo.Name == language.Name && joke.Category == category);
 
             return RandomJoke(jokes);
         }
@@ -65,7 +65,7 @@ namespace JokeMachineApi
         /// </summary>
         /// <param name="acceptLanguage"></param>
         /// <returns>the main language</returns>
-        public static Language GetLanguage(string acceptLanguage)
+        public static CultureInfo GetLanguage(string acceptLanguage)
         {
 
             //CultureInfo ci = new CultureInfo(acceptLanguage);
@@ -73,18 +73,11 @@ namespace JokeMachineApi
             string language = "da-DK";
             if (acceptLanguage != null)
             {
-                language = "da-DK";
+                language = acceptLanguage.Split(",")[0];
             }
 
-            switch (language)
-            {
-                case "da-DK":
-                    return Language.Danish;
-                case "en-US":
-                    return Language.Danish;
-                default:
-                    return Language.English;
-            }
+            return new CultureInfo(language);
+
         }
 
         public static JokeCategory GetCategory(string category)

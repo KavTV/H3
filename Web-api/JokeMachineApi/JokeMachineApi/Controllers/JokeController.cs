@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,10 +15,10 @@ namespace JokeMachineApi.Controllers
 
         // GET: api/<JokeController>
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromHeader]string apikey)
         {
             //Get the language of the request
-            Language acceptLang = JokeProvider.GetLanguage(HttpContext.Request.Headers.AcceptLanguage);
+            CultureInfo acceptLang = JokeProvider.GetLanguage(HttpContext.Request.Headers.AcceptLanguage);
 
             JokeCategory favCategory = JokeCategory.Any;
             //Make sure that we got a favCategory cookie, if not it is considered all categories
@@ -31,12 +32,13 @@ namespace JokeMachineApi.Controllers
 
             //First we try to find the used jokes in the session, this could be null
             List<Joke> usedJokes = HttpContext.Session.GetObjectFromJson<List<Joke>>("Jokes");
+
             //If we already have some used jokes, then we will update the list
             if (usedJokes != null)
             {
                 Joke randomJoke = null;
 
-                if (favCategory != JokeCategory.Any)
+                if (favCategory != JokeCategory.Any && allowedCategories.Contains(favCategory))
                 {
                     //Lets get a random joke that has filtered out all the used ones from a specific category
                     randomJoke = JokeProvider.GetRandomJokeFromCategory(usedJokes, acceptLang, favCategory);
@@ -101,9 +103,9 @@ namespace JokeMachineApi.Controllers
             }
         }
 
-        // DELETE api/<JokeController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE api/<JokeController>
+        [HttpDelete()]
+        public void Delete()
         {
             CookieOptions co = new CookieOptions();
             //Making the age 0 deletes the cookie

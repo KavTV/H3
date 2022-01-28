@@ -11,6 +11,7 @@
         public async Task InvokeAsync(HttpContext context)
         {
             //Look for the api key with name ApiKey in header and find its value
+            //If no api keey found, tell the user no key were found
             if (!context.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
             {
                 context.Response.StatusCode = 401;
