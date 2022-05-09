@@ -1,2 +1,8 @@
-<input type="text" (ngModelChange)="sideChanged()">
-<h3>Arealet er {{area}}</h3>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../assets/Img/Square.svg" alt="Card image cap">
+    <input style="position: absolute; top: 260px; left: 45px;" type="text" [(ngModel)]="sideA" (ngModelChange)="sideChanged()">
+    <div class="card-body">
+        <h3>Arealet er {{area}}</h3>
+        <h3>Omkredsen er {{peremiter}}</h3>
+    </div>
+</div>
