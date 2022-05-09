@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { RectangleComponent } from './rectangle/rectangle.component';
 import { ParallelogramComponent } from './parallelogram/parallelogram.component';
+import { TrapezComponent } from './trapez/trapez.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
     RectangleComponent,
-    ParallelogramComponent
+    ParallelogramComponent,
+    TrapezComponent
   ],
   imports: [
     BrowserModule,

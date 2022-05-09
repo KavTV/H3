@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../assets/Img/trapez.png" alt="Card image cap">
+    <input class="inputLength" type="text" [(ngModel)]="sideA" (ngModelChange)="sideChanged()"  style="position: absolute; top: 5px; left: 130px;">
+    <input class="inputLength" type="text" [(ngModel)]="sideB" (ngModelChange)="sideChanged()"  style="position: absolute; top: 50px; left: 10px;" >
+    <input class="inputLength" type="text" [(ngModel)]="sideC" (ngModelChange)="sideChanged()"  style="position: absolute; top: 155px; left: 130px;">
+    <input class="inputLength" type="text" [(ngModel)]="sideD" (ngModelChange)="sideChanged()"  style="position: absolute; top: 50px; left: 220px;">
+    <input class="inputLength" type="text" [(ngModel)]="height" (ngModelChange)="sideChanged()"  style="position: absolute; top: 70px; left: 90px;">
+    <div class="card-body">
+        <h3>Arealet er {{area}}</h3>
+        <h3>Omkredsen er {{peremiter}}</h3>
+    </div>
+</div>
