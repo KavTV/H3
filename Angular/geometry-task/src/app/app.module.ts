@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { RectangleComponent } from './rectangle/rectangle.component';
+import { ParallelogramComponent } from './parallelogram/parallelogram.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    RectangleComponent
+    RectangleComponent,
+    ParallelogramComponent
   ],
   imports: [
     BrowserModule,

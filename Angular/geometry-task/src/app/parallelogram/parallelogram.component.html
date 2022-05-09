@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="../../assets/Img/Parallelogram.png" alt="Card image cap">
+    <input class="inputLength" type="text" [(ngModel)]="sideB" (ngModelChange)="sideChanged()"  style="position: absolute; top: 50px;" >
+    <input class="inputLength" type="text" [(ngModel)]="sideA" (ngModelChange)="sideChanged()"  style="position: absolute; top: 100px; left: 130px;">
+    <input class="inputLength" type="text" [(ngModel)]="height" (ngModelChange)="sideChanged()"  style="position: absolute; top: 50px; left: 100px;">
+    <div class="card-body">
+        <h3>Arealet er {{area}}</h3>
+        <h3>Omkredsen er {{peremiter}}</h3>
+    </div>
+</div>
