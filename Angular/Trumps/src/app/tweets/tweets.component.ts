@@ -26,7 +26,7 @@ export class TweetsComponent implements OnInit {
   }
 
   isHappyTweet(text: string): boolean{
-    return text.search('God') != -1;
+    return text.search('God') != -1 || text.search("happy") != -1;
   }
 
 }
