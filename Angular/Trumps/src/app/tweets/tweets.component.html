@@ -1,0 +1,25 @@
+
+<div class="">
+
+    <div class="card cardStyle" *ngFor="let tweet of twat">
+        <div *ngIf="tweet.likes > 80000; else notShow ">
+            <div class="card-body">
+                <h5  [ngClass]="{'angryTweet': isAngryTweet(tweet.text),'greenTweet':isHappyTweet(tweet.text)}" >
+                    {{tweet.text | textReplacer}}
+                </h5>
+            </div>
+            <div class="d-flex justify-content-center" style="gap: 20px; margin-left: 15px;">
+                <div>
+                    <label>{{tweet.date}}</label>
+                </div>
+                <div>
+                    <label>{{tweet.likes}}</label>
+                    <img src="../../assets/Img/twitterheart.png" style="width: 20px;">
+                </div>
+            </div>
+        </div>
+        <ng-template #notShow>
+            <h5>This tweet is irellevant, it has too little likes</h5>
+        </ng-template>
+    </div>
+</div>
