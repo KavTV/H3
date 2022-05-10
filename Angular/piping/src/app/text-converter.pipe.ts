@@ -43,7 +43,7 @@ export class TextConverterPipe implements PipeTransform {
       }
       return newString;
     }
-    //For md5 hash
+    //For md5 hash, for now it is just gonna hash if morse is not chosen
     else {
       return Md5.hashStr(value);
     }
