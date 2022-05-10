@@ -1,8 +1,8 @@
 <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="../../assets/Img/Square.svg" alt="Card image cap">
-    <input style="position: absolute; top: 260px; left: 45px;" type="text" [(ngModel)]="sideA" (ngModelChange)="sideChanged()">
+    <input style="position: absolute; top: 260px; left: 45px;" type="text" [(ngModel)]="shape.sideA">
     <div class="card-body">
-        <h3>Arealet er {{area}}</h3>
-        <h3>Omkredsen er {{peremiter}}</h3>
+        <h3>Arealet er {{shape.calculateArea()}}</h3>
+        <h3>Omkredsen er {{shape.calculatePerimeter()}}</h3>
     </div>
 </div>

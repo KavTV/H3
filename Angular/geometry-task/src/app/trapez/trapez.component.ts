@@ -9,14 +9,6 @@ import { Trapez } from '../classes/trapez';
 export class TrapezComponent implements OnInit {
 
   trapez: Trapez = new Trapez();
-  area: number = 0;
-  peremiter: number = 0;
-
-  sideA: number = 0;
-  sideB: number = 0;
-  sideC: number = 0;
-  sideD: number = 0;
-  height: number = 0;
 
   constructor() {
   }
@@ -25,14 +17,10 @@ export class TrapezComponent implements OnInit {
   }
 
   //WHEN INPUT IS CHANGED, CALCULATE THE AREA AND PEREMITER
-  sideChanged(){
-    this.trapez.sideA = this.sideA;
-    this.trapez.sideB = this.sideB;
-    this.trapez.height = this.height;
-    this.trapez.sideC = this.sideC;
-    this.trapez.sideD = this.sideD;
-    this.area = this.trapez.calculateArea();
-    this.peremiter = this.trapez.calculatePerimeter();
-  }
+  //Removed since i can just use the method as interpolation in html
+  // sideChanged(){
+  //   this.area = this.trapez.calculateArea();
+  //   this.peremiter = this.trapez.calculatePerimeter();
+  // }
 
 }

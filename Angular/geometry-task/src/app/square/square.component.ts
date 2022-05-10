@@ -9,10 +9,6 @@ import { Shape } from '../classes/shape';
 export class SquareComponent implements OnInit  {
 
   shape: Shape = new Shape();
-  area: number = 0;
-  peremiter: number = 0;
-
-  sideA: number = 0;
 
   constructor() {
   }
@@ -20,11 +16,5 @@ export class SquareComponent implements OnInit  {
   ngOnInit(): void {
   }
   
-  //WHEN INPUT IS CHANGED, CALCULATE THE AREA AND PEREMITER
-  sideChanged(){
-    this.shape.sideA = this.sideA;
-    this.area = this.shape.calculateArea();
-    this.peremiter = this.shape.calculatePerimeter();
-  }
 
 }
