@@ -1,0 +1,77 @@
+<div class="container-fluid row" style="display: flex; gap: 20px; margin-top: 20px;">
+
+    <div class="card col" style="width:18rem;">
+        <form [formGroup]="dictatorForm" (ngSubmit)="onSubmit()">
+            <div class="form-group card-body">
+                <label>First name</label>
+                <input formControlName="firstName" placeholder="First name" type="text" class="form-control">
+                <div *ngIf="dictatorForm.get('firstName')?.invalid && 
+                dictatorForm.get('firstName')?.touched">
+                    <small *ngIf="dictatorForm.get('firstName')?.errors?.['required']" class="text-danger">Field required</small>
+                </div>
+    
+                <label>Last name</label>
+                <input formControlName="lastName" placeholder="Last name" type="text" class="form-control">
+                <div *ngIf="dictatorForm.get('lastName')?.invalid && 
+                dictatorForm.get('lastName')?.touched">
+                    <small *ngIf="dictatorForm.get('lastName')?.errors?.['required']" class="text-danger">Field required</small>
+                </div>
+    
+                <label>Birth year</label>
+                <input formControlName="birthYear" placeholder="Birth year" type="text" class="form-control">
+                <div *ngIf="dictatorForm.get('birthYear')?.invalid && 
+                dictatorForm.get('birthYear')?.touched">
+                    <small *ngIf="dictatorForm.get('birthYear')?.errors?.['required']" class="text-danger">Field required</small>
+                </div>
+    
+                <label>Death year</label>
+                <input formControlName="deathYear" placeholder="Death year" type="text" class="form-control">
+                <div *ngIf="dictatorForm.get('deathYear')?.invalid && 
+                dictatorForm.get('deathYear')?.touched">
+                    <small *ngIf="dictatorForm.get('deathYear')?.errors?.['required']" class="text-danger">Field required</small>
+                </div>
+    
+                <label>Description</label>
+                <input formControlName="description" placeholder="Description" type="text" class="form-control">
+                <div *ngIf="dictatorForm.get('description')?.invalid && 
+                dictatorForm.get('description')?.touched">
+                <small *ngIf="dictatorForm.get('description')?.errors?.['minlength']" class="text-danger">Description must be at least 5 characters long</small>
+                <small *ngIf="dictatorForm.get('description')?.errors?.['required']" class="text-danger">Field required</small>
+                </div>
+            </div>
+    
+            <div class="d-flex justify-content-center" style="margin: 10px;">
+
+                <button [disabled]="!dictatorForm.valid" class="btn btn-primary" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="card card-body col" style="width: 35rem;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Birth year</th>
+                    <th>Death year</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dictator of dictatorList">
+                    <td>{{dictator.FirstName}}</td>
+                    <td>{{dictator.LastName}}</td>
+                    <td>{{dictator.BirthYear}}</td>
+                    <td>{{dictator.DeathYear}}</td>
+                    <td>{{dictator.Description}}</td>
+                    <td>
+                        <button (click)="onDelete(dictator)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
