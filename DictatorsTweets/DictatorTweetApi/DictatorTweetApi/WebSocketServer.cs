@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DictatorTweetApi.Services;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
@@ -8,39 +10,62 @@ using System.Threading;
 
 namespace DictatorTweetApi
 {
-    public class WebSocketServer
+    public interface IWebSocketServer
+    {
+        void Start();
+    }
+    public class WebSocketServer : IWebSocketServer
     {
         bool isRunning = false;
+
         static Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        List<Socket> clientSockets = new List<Socket>();
+
         private readonly Thread serverThread;
         private readonly Thread twitterThread;
-        List<Socket> clientSockets = new List<Socket>();
-        public WebSocketServer()
+
+        private readonly ITweetService tweetService;
+        public WebSocketServer(ITweetService ts)
         {
+            tweetService = ts;
             serverThread = new Thread(StartServerThread);
             twitterThread = new Thread(twitterFeedSender);
         }
 
         public void Start()
         {
-            IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Any, 8081);
+            IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Parse("192.168.1.107"), 8081);
             serverSocket.Bind(iPEndPoint);
             serverSocket.Listen(12);
             isRunning = true;
+
             serverThread.Start();
             twitterThread.Start();
+
             Debug.WriteLine($"--- Connected to ip {iPEndPoint.Address} on port: {iPEndPoint.Port} ---");
         }
         void twitterFeedSender()
         {
             while (isRunning)
             {
+                //Send tweet every 2 seconds
                 Thread.Sleep(2000);
-                foreach (Socket socket in clientSockets)
+
+                //Only find a tweet if there is any websockets connected
+                if (clientSockets.Count != 0)
                 {
-                    if (socket.Connected)
+                    //We will get a new twitter message
+                    TwitterMessage twitterMessage = tweetService.GetTwitterMessage();
+                    //Convert it to a string
+                    string jsonMessage = JsonConvert.SerializeObject(twitterMessage);
+
+                    //Send the tweet to all websockets listening
+                    foreach (Socket socket in clientSockets)
                     {
-                        socket.Send(Encoding.ASCII.GetBytes("jens"));
+                        if (socket.Connected)
+                        {
+                            socket.Send(Encoding.ASCII.GetBytes(jsonMessage));
+                        }
                     }
                 }
             }
@@ -54,7 +79,7 @@ namespace DictatorTweetApi
                 try
                 {
                     clientSocket = serverSocket.Accept();
-                    if (clientSocket == null)
+                    if (clientSocket != null)
                     {
                         clientSockets.Add(clientSocket);
                     }

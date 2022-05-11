@@ -28,6 +28,8 @@ namespace DictatorTweetApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDictatorService, DictatorService>();
+            services.AddSingleton<IWebSocketServer, WebSocketServer>();
+            services.AddSingleton<ITweetService, TweetService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -37,7 +39,7 @@ namespace DictatorTweetApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IWebSocketServer socketServer)
         {
             if (env.IsDevelopment())
             {
@@ -56,6 +58,8 @@ namespace DictatorTweetApi
             {
                 endpoints.MapControllers();
             });
+
+            socketServer.Start();
         }
     }
 }

@@ -39,17 +39,14 @@ namespace DictatorTweetApi.Controllers
 
         // POST: DictatorController/Delete/5
         [HttpDelete]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(string dictatorName)
         {
-            try
+            if (dictatorService.DeleteDictator(dictatorName))
             {
-                return RedirectToAction(nameof(Index));
+                return Ok();
             }
-            catch
-            {
-                return View();
-            }
+
+            return StatusCode(404);
         }
     }
 }

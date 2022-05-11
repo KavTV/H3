@@ -15,31 +15,15 @@ namespace DictatorTweetApi.Services
     }
     public class DictatorService : IDictatorService
     {
-        static List<Dictator> dictators = new List<Dictator>();
+        static List<Dictator> dictators = new List<Dictator>() { new Dictator("Hitler", "very evil", "sss") };
         static Stack<string> dictatorKeys = new Stack<string>();
 
-        public DictatorService()
-        {
-            getDictatorKeys();
-        }
+        private readonly ITweetService tweetService;
 
-        /// <summary>
-        /// Get all the different keys for the dictators to be assigned
-        /// </summary>
-        private void getDictatorKeys()
+        public DictatorService(ITweetService ts)
         {
-            //Deserialize all tweets, to find all the available twitter keys
-            string jsonString = File.ReadAllText(@"C:\Users\krj\Documents\Github\H3\DictatorsTweets\tweets.json");
-            TwitterChatMessages msg = JsonConvert.DeserializeObject<TwitterChatMessages>(jsonString);
-
-            foreach (var message in msg.Data120161205TrumpTwitterAll)
-            {
-                //if message does not contain the key, then add it to the list of keys available for dictators
-                if (!dictatorKeys.Contains(message.Client))
-                {
-                    dictatorKeys.Push(message.Client);
-                }
-            }
+            tweetService = ts;
+            dictatorKeys = ts.GetDictatorKeys();
         }
 
         /// <summary>
