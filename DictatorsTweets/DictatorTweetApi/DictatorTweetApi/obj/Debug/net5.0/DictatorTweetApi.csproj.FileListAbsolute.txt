@@ -56,3 +56,4 @@ C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\DictatorTweetApi\DictatorTwee
 C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\DictatorTweetApi\DictatorTweetApi\obj\Debug\net5.0\ref\DictatorTweetApi.dll
 C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\DictatorTweetApi\DictatorTweetApi\obj\Debug\net5.0\DictatorTweetApi.pdb
 C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\DictatorTweetApi\DictatorTweetApi\obj\Debug\net5.0\DictatorTweetApi.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\DictatorsTweets\DictatorTweetApi\DictatorTweetApi\bin\Debug\net5.0\websocket-sharp-core.dll

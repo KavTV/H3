@@ -2,11 +2,13 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Linq;
 
 namespace DictatorTweetApi
 {
@@ -14,18 +16,18 @@ namespace DictatorTweetApi
     {
         void Start();
     }
-    public class WebSocketServer : IWebSocketServer
+    public class WebSocketServerOld : IWebSocketServer
     {
         bool isRunning = false;
 
-        static Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        static Socket serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
         List<Socket> clientSockets = new List<Socket>();
 
         private readonly Thread serverThread;
         private readonly Thread twitterThread;
 
         private readonly ITweetService tweetService;
-        public WebSocketServer(ITweetService ts)
+        public WebSocketServerOld(ITweetService ts)
         {
             tweetService = ts;
             serverThread = new Thread(StartServerThread);
@@ -34,7 +36,10 @@ namespace DictatorTweetApi
 
         public void Start()
         {
-            IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Parse("192.168.1.107"), 8081);
+            //Get the localhost
+            IPAddress address = Dns.GetHostAddresses("localhost").Where(x => x.AddressFamily == AddressFamily.InterNetwork).First();
+            
+            IPEndPoint iPEndPoint = new IPEndPoint(address, 8081);
             serverSocket.Bind(iPEndPoint);
             serverSocket.Listen(12);
             isRunning = true;
@@ -59,14 +64,30 @@ namespace DictatorTweetApi
                     //Convert it to a string
                     string jsonMessage = JsonConvert.SerializeObject(twitterMessage);
 
-                    //Send the tweet to all websockets listening
-                    foreach (Socket socket in clientSockets)
+                    lock (clientSockets)
                     {
-                        if (socket.Connected)
+
+                        //Send the tweet to all websockets listening
+                        foreach (Socket socket in clientSockets.ToList())
                         {
-                            socket.Send(Encoding.ASCII.GetBytes(jsonMessage));
+                            if (socket.Connected)
+                            {
+                                try
+                                {
+                                    socket.Send(Encoding.ASCII.GetBytes(jsonMessage));
+                                }
+                                catch (Exception e)
+                                {
+                                    Debug.WriteLine("-- Client socket disconnected --");
+                                }
+                            }
+                            else
+                            {
+                                clientSockets.Remove(socket);
+                            }
                         }
                     }
+
                 }
             }
         }
@@ -81,15 +102,21 @@ namespace DictatorTweetApi
                     clientSocket = serverSocket.Accept();
                     if (clientSocket != null)
                     {
+                        Debug.WriteLine("--- Client connected");
+                        lock (clientSockets)
+                        {
+
                         clientSockets.Add(clientSocket);
+                        }
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("SOMETHING WENT WRONG, " + e.Message);
+                    Debug.WriteLine("SOMETHING WENT WRONG, " + e.Message);
                 }
 
             }
         }
+
     }
 }

@@ -28,14 +28,22 @@ namespace DictatorTweetApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDictatorService, DictatorService>();
-            services.AddSingleton<IWebSocketServer, WebSocketServer>();
+            services.AddSingleton<IWebSocketServer, WebSocketServerV2>();
             services.AddSingleton<ITweetService, TweetService>();
+
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DictatorTweetApi", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +55,14 @@ namespace DictatorTweetApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DictatorTweetApi v1"));
             }
+            app.UseWebSockets(new WebSocketOptions
+            {
+                KeepAliveInterval =TimeSpan.FromSeconds(120)
+            });
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowAll");
 
             app.UseRouting();
 
@@ -58,7 +72,6 @@ namespace DictatorTweetApi
             {
                 endpoints.MapControllers();
             });
-
             socketServer.Start();
         }
     }
