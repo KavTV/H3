@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http'
 import { Dictator } from '../interfaces/dictator';
 import { TweetService } from '../tweet.service';
 import { DictatorService } from '../dictator.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tweet-websocket',
@@ -14,10 +15,12 @@ import { DictatorService } from '../dictator.service';
 @Injectable()
 export class TweetWebsocketComponent implements OnInit {
 
-  constructor(private http: HttpClient, public dicService: DictatorService) { }
+
+  constructor(private http: HttpClient, public dicService: DictatorService, private tweetService: TweetService) {
+
+  }
 
   ngOnInit(): void {
-    console.log(this.dicService.dictatorObservable);
     // this.dicService.dictatorObservable.subscribe((data: Dictator) => {
     //   next:
 
@@ -27,7 +30,7 @@ export class TweetWebsocketComponent implements OnInit {
     // )
     // this.http.post<Dictator>("https://localhost:44323/api/Dictator?dictatorName=jenfffs&Description=hej","").subscribe(data =>
     // console.log(data)
-  // )
+    // )
   }
 
 }

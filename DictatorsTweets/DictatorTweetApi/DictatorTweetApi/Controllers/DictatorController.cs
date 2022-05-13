@@ -23,9 +23,9 @@ namespace DictatorTweetApi.Controllers
 
         // GET: DictatorController/Create
         [HttpPost]
-        public Dictator Create(string dictatorName, string Description)
+        public Dictator Create([FromBody]Dictator dictator)
         {
-            return dictatorService.CreateDictator(dictatorName, Description);
+            return dictatorService.CreateDictator(dictator.Name, dictator.Description);
         }
 
 

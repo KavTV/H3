@@ -16,7 +16,7 @@ namespace DictatorTweetApi.Services
     public class DictatorService : IDictatorService
     {
         static List<Dictator> dictators = new List<Dictator>() { new Dictator("Hitler", "very evil", "sss") };
-        static Stack<string> dictatorKeys = new Stack<string>();
+        static Queue<string> dictatorKeys = new Queue<string>();
 
         private readonly ITweetService tweetService;
 
@@ -36,7 +36,7 @@ namespace DictatorTweetApi.Services
             {
                 return null;
             }
-            return dictatorKeys.Pop();
+            return dictatorKeys.Dequeue();
         }
 
         public Dictator CreateDictator(string dictatorName, string description)
@@ -62,7 +62,7 @@ namespace DictatorTweetApi.Services
             Dictator foundDic = dictators.Find(dic => dic.Name == dictatorName);
             if (foundDic != null)
             {
-                dictatorKeys.Push(foundDic.TwitterKey);
+                dictatorKeys.Enqueue(foundDic.TwitterKey);
                 dictators.Remove(foundDic);
                 return true;
             }

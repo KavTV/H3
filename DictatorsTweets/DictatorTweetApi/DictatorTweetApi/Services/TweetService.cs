@@ -8,7 +8,7 @@ namespace DictatorTweetApi.Services
     public interface ITweetService
     {
         TwitterMessage GetTwitterMessage();
-        Stack<string> GetDictatorKeys();
+        Queue<string> GetDictatorKeys();
     }
     public class TweetService : ITweetService
     {
@@ -19,7 +19,7 @@ namespace DictatorTweetApi.Services
             if (twitterMessages == null)
             {
                 //Deserialize all tweets and save them in a list
-                string jsonString = File.ReadAllText(@"C:\Users\krj\Documents\Github\H3\DictatorsTweets\tweets.json");
+                string jsonString = File.ReadAllText(@"C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\tweets.json");
                 TwitterChatMessages msg = JsonConvert.DeserializeObject<TwitterChatMessages>(jsonString);
                 twitterMessages = msg.Data120161205TrumpTwitterAll;
             }
@@ -28,16 +28,16 @@ namespace DictatorTweetApi.Services
         /// <summary>
         /// Get all the different keys for the dictators to be assigned
         /// </summary>
-        public Stack<string> GetDictatorKeys()
+        public Queue<string> GetDictatorKeys()
         {
-            Stack<string> dicKeys = new Stack<string>();
+            Queue<string> dicKeys = new Queue<string>();
 
             foreach (var message in twitterMessages)
             {
                 //if message does not contain the key, then add it to the list of keys available for dictators
                 if (!dicKeys.Contains(message.Client))
                 {
-                    dicKeys.Push(message.Client);
+                    dicKeys.Enqueue(message.Client);
                 }
             }
 
@@ -46,7 +46,7 @@ namespace DictatorTweetApi.Services
 
         public TwitterMessage GetTwitterMessage()
         {
-            if (twitterMessages.Count == 0)
+            if (twitterMessages.Count < 1)
             {
                 return null;
             }

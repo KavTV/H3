@@ -1,0 +1,47 @@
+.tweetCard{
+    max-width: 25rem;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.dictatorCard{
+    max-width: 50rem;
+    min-height: 12rem;
+    margin: auto;
+    margin-top: 15px;
+    flex-direction: row;
+    padding-left: 15px;
+}
+
+.userProfile{
+    flex-direction: column;
+    width: 45px;
+    margin-right: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.userProfileSize{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 0;
+}
+.dictatorText{
+    font-weight: 700;
+}
+
+.verifiedIcon{
+    width: 16px;
+    height: 16px;
+}
+
+.cardHeader{
+    display: flex;
+    gap: 5px;
+}
+
+.cardContentSpacing{
+    padding: 15px;
+}

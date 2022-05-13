@@ -8,12 +8,18 @@ import { Dictator } from './interfaces/dictator';
 })
 export class DictatorService {
 
-  dictatorObservable: BehaviorSubject<Dictator> = new BehaviorSubject<Dictator>({} as Dictator)
+  dictatorObservable: BehaviorSubject<Dictator[]> = new BehaviorSubject<Dictator[]>({} as Dictator[])
 
   constructor(private http: HttpClient) {
-    this.http.get<Dictator>("https://localhost:44323/api/Dictator").subscribe((data: Dictator) =>
+    let counts
+    this.http.get<Dictator[]>("https://localhost:44323/api/Dictator").subscribe((data: Dictator[]) =>
       {
-        this.dictatorObservable.next(data);
+        next:
+        counts = data;
+
+        complete:
+        console.log(counts)
+        this.dictatorObservable.next(counts);
       }
     
     )
