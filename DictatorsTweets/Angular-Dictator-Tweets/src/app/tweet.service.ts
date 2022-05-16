@@ -17,25 +17,17 @@ export class TweetService {
     this.myWebSocket.asObservable().subscribe((data) => {
       next:
       dictatorService.dictatorObservable.subscribe((dicData: Dictator[]) => {
-        console.log("peek data");
         dicData.forEach(dic => {
-          if (dic.twitterKey == data.Client) {
+
+          if (data != null && dic.twitterKey == data.Client) {
+
             console.log("TWEET DATA", data.Client);
-            if(dic.tweets == undefined){
-              dic.tweets = new BehaviorSubject<TwitterMessage[]>({} as TwitterMessage[]);
-            }
-            let newTweetList: TwitterMessage[] = [];
-
-            dic.tweets.subscribe((tweets: TwitterMessage[]) =>{
-              if(tweets.length > 0){
-                newTweetList = tweets;
-
-              }
-            });
+            if(dic.tweets == null){
+              dic.tweets = new BehaviorSubject<TwitterMessage[]>([] as TwitterMessage[]);
+            }            
             
-            
+            let newTweetList: TwitterMessage[] = dic.tweets.getValue();
             newTweetList.push(data);
-            
             dic.tweets.next(newTweetList);
           }
         })

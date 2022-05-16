@@ -7,18 +7,24 @@ import { AppComponent } from './app.component';
 import { TweetWebsocketComponent } from './tweet-websocket/tweet-websocket.component';
 import { DictatorComponent } from './dictator/dictator.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CreateDictatorComponent } from './create-dictator/create-dictator.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TweetWebsocketComponent,
-    DictatorComponent
+    DictatorComponent,
+    CreateDictatorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

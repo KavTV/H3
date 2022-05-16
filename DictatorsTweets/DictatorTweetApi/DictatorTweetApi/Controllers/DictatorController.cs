@@ -31,9 +31,9 @@ namespace DictatorTweetApi.Controllers
 
         // GET: DictatorController/Edit/5
         [HttpPatch]
-        public Dictator Edit(string dictatorName, string newDicName, string newDesc)
+        public Dictator Edit(string dictatorName, [FromBody] Dictator dictator)
         {
-            return dictatorService.UpdateDictator(dictatorName, newDicName, newDesc);
+            return dictatorService.UpdateDictator(dictatorName, dictator.Name, dictator.Description);
         }
 
 

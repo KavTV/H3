@@ -1,6 +1,6 @@
 <div *ngIf="dicService.dictatorObservable">
     <div *ngFor="let dic of dicService.dictatorObservable| async">
-        <div class="card dictatorCard d-flex">
+        <div [routerLink]="['dictator', dic.twitterKey]" class="card dictatorCard d-flex">
 
             <div class="userProfile">
                 <img class="userProfileSize" src="../../assets/Img/defaultAvatar.png">

@@ -1,25 +1,6 @@
-<div class="card col" style="width:18rem;">
-    <form [formGroup]="dictatorForm" (ngSubmit)="onSubmit()">
-        <div class="form-group card-body">
-            <label>First name</label>
-            <input formControlName="name" placeholder="name" type="text" class="form-control">
-            <div *ngIf="dictatorForm.get('name')?.invalid && 
-            dictatorForm.get('firstName')?.touched">
-                <small *ngIf="dictatorForm.get('name')?.errors?.['required']" class="text-danger">Field required</small>
-            </div>
+<div *ngIf="">
+    <div *ngIf="">
 
-            <label>Description</label>
-            <input formControlName="description" placeholder="Description" type="text" class="form-control">
-            <div *ngIf="dictatorForm.get('description')?.invalid && 
-            dictatorForm.get('description')?.touched">
-            <small *ngIf="dictatorForm.get('description')?.errors?.['minlength']" class="text-danger">Description must be at least 5 characters long</small>
-            <small *ngIf="dictatorForm.get('description')?.errors?.['required']" class="text-danger">Field required</small>
-            </div>
-        </div>
+    </div>
 
-        <div class="d-flex justify-content-center" style="margin: 10px;">
-
-            <button [disabled]="!dictatorForm.valid" class="btn btn-primary" type="submit">Create</button>
-        </div>
-    </form>
 </div>

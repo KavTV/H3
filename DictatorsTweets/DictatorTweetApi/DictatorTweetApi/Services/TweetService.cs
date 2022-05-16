@@ -19,7 +19,7 @@ namespace DictatorTweetApi.Services
             if (twitterMessages == null)
             {
                 //Deserialize all tweets and save them in a list
-                string jsonString = File.ReadAllText(@"C:\Users\kaspe\Documents\Github\H3\DictatorsTweets\tweets.json");
+                string jsonString = File.ReadAllText(@"C:\Users\krj\Documents\Github\H3\DictatorsTweets\tweets.json");
                 TwitterChatMessages msg = JsonConvert.DeserializeObject<TwitterChatMessages>(jsonString);
                 twitterMessages = msg.Data120161205TrumpTwitterAll;
             }
