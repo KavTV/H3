@@ -5,5 +5,5 @@ export interface Dictator {
     name: string;
     description: string;
     twitterKey: string;
-    tweets: BehaviorSubject<TwitterMessage[]> | null
+    tweets$: BehaviorSubject<TwitterMessage[]> | null
 }

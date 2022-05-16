@@ -1,6 +1,5 @@
-<div class="row">
 
-    <div class="card col" style="width:18rem;">
+    <div class="card col" style="width:18rem; margin: auto;">
         <form [formGroup]="dictatorForm" (ngSubmit)="onSubmit()">
             <div class="form-group card-body">
                 <label>First name</label>
@@ -28,41 +27,3 @@
             </div>
         </form>
     </div>
-
-    <div class="card col" style="width:18rem;">
-        <form [formGroup]="updateDictatorForm" (ngSubmit)="onPatch()">
-            <div class="form-group card-body">
-                <label>First name</label>
-                <input formControlName="name" placeholder="name" type="text" class="form-control">
-                <div *ngIf="updateDictatorForm.get('name')?.invalid && 
-                updateDictatorForm.get('newName')?.touched">
-                    <small *ngIf="updateDictatorForm.get('name')?.errors?.['required']" class="text-danger">Field
-                        required</small>
-                </div>
-
-                <label>New First name</label>
-                <input formControlName="newName" placeholder="newName" type="text" class="form-control">
-                <div *ngIf="updateDictatorForm.get('newName')?.invalid && 
-                updateDictatorForm.get('newName')?.touched">
-                    <small *ngIf="updateDictatorForm.get('newName')?.errors?.['required']" class="text-danger">Field
-                        required</small>
-                </div>
-
-                <label>Description</label>
-                <input formControlName="description" placeholder="Description" type="text" class="form-control">
-                <div *ngIf="updateDictatorForm.get('description')?.invalid && 
-                updateDictatorForm.get('description')?.touched">
-                    <small *ngIf="updateDictatorForm.get('description')?.errors?.['minlength']"
-                        class="text-danger">Description must be at least 5 characters long</small>
-                    <small *ngIf="updateDictatorForm.get('description')?.errors?.['required']" class="text-danger">Field
-                        required</small>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-center" style="margin: 10px;">
-
-                <button [disabled]="!updateDictatorForm.valid" class="btn btn-primary" type="submit">Update</button>
-            </div>
-        </form>
-    </div>
-</div>

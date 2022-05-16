@@ -31,17 +31,17 @@ namespace DictatorTweetApi.Controllers
 
         // GET: DictatorController/Edit/5
         [HttpPatch]
-        public Dictator Edit(string dictatorName, [FromBody] Dictator dictator)
+        public Dictator Edit(string id, [FromBody] Dictator dictator)
         {
-            return dictatorService.UpdateDictator(dictatorName, dictator.Name, dictator.Description);
+            return dictatorService.UpdateDictator(id, dictator.Name, dictator.Description);
         }
 
 
         // POST: DictatorController/Delete/5
         [HttpDelete]
-        public IActionResult Delete(string dictatorName)
+        public IActionResult Delete(string id)
         {
-            if (dictatorService.DeleteDictator(dictatorName))
+            if (dictatorService.DeleteDictator(id))
             {
                 return Ok();
             }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Dictator } from '../interfaces/dictator';
+import { DictatorService } from '../dictator.service';
 
 @Component({
   selector: 'app-create-dictator',
@@ -10,18 +11,14 @@ import { Dictator } from '../interfaces/dictator';
 })
 export class CreateDictatorComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private dicService: DictatorService) { }
 
   dictatorForm = this.fb.group({
     name: ['', Validators.required],
     description: ['', [Validators.required, Validators.minLength(5)]],
   })
 
-  updateDictatorForm = this.fb.group({
-    name: ['', Validators.required],
-    newName:['', Validators.required],
-    description: ['', [Validators.required, Validators.minLength(5)]],
-  })
+  
 
 
   ngOnInit(): void {
@@ -38,20 +35,13 @@ export class CreateDictatorComponent implements OnInit {
       name: newDictator.name,
       description: newDictator.description,
       twitterKey: ""
-    }).subscribe((data: Dictator) =>
-      console.log(data)
-    )
+    }).subscribe((data: Dictator) => {
+      let newDictatorArr = this.dicService.dictatorObservable$.getValue();
+      newDictatorArr.push(data);
+    })
+
   }
 
-  onPatch(){
-    this.http.patch<Dictator>("https://localhost:44323/api/Dictator?dictatorName=jenfffs&Description=hej",{
-      dictatorName: this.updateDictatorForm.get('name')?.value,
-      newDicName: this.updateDictatorForm.get('newName')?.value,
-      newDesc: this.updateDictatorForm.get('description')?.value
-
-    }).subscribe(data =>
-    console.log(data)
-    )
-  }
+  
 
 }

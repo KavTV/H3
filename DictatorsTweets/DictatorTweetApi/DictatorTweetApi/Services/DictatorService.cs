@@ -10,12 +10,12 @@ namespace DictatorTweetApi.Services
         Dictator CreateDictator(string dictatorName, string description);
         bool DeleteDictator(string dictatorName);
         IEnumerable<Dictator> GetAllDictators();
-        Dictator UpdateDictator(string dictatorName, string newName, string newDesc);
+        Dictator UpdateDictator(string id, string newName, string newDesc);
 
     }
     public class DictatorService : IDictatorService
     {
-        static List<Dictator> dictators = new List<Dictator>() { new Dictator("Hitler", "very evil", "sss") };
+        static List<Dictator> dictators = new List<Dictator>();
         static Queue<string> dictatorKeys = new Queue<string>();
 
         private readonly ITweetService tweetService;
@@ -56,10 +56,10 @@ namespace DictatorTweetApi.Services
             return newDic;
         }
 
-        public bool DeleteDictator(string dictatorName)
+        public bool DeleteDictator(string id)
         {
             //Try to find the dictator with the name
-            Dictator foundDic = dictators.Find(dic => dic.Name == dictatorName);
+            Dictator foundDic = dictators.Find(dic => dic.TwitterKey == id);
             if (foundDic != null)
             {
                 dictatorKeys.Enqueue(foundDic.TwitterKey);
@@ -75,10 +75,10 @@ namespace DictatorTweetApi.Services
             return dictators;
         }
 
-        public Dictator UpdateDictator(string dictatorName, string newName, string newDesc)
+        public Dictator UpdateDictator(string id, string newName, string newDesc)
         {
             //Try to find the dictator with the name
-            int foundDic = dictators.FindIndex(dic => dic.Name == dictatorName);
+            int foundDic = dictators.FindIndex(dic => dic.TwitterKey == id);
             if (foundDic != -1)
             {
                 dictators[foundDic].Name = newName;

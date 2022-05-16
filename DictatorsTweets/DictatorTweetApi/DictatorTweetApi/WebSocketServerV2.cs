@@ -24,7 +24,8 @@ namespace DictatorTweetApi
         {
             while (true)
             {
-                Thread.Sleep(2000);
+                //Every second, send a tweet
+                Thread.Sleep(1000);
                 Send(JsonConvert.SerializeObject(tweetService.GetTwitterMessage()));
             }
         }
@@ -43,15 +44,6 @@ namespace DictatorTweetApi
         public void Start()
         {
             //twitterThread.Start();
-        }
-
-        void sendTweets()
-        {
-            while (true)
-            {
-                Thread.Sleep(1000);
-                //Send(Encoding.UTF8.GetBytes("jens"));
-            }
         }
     }
 }

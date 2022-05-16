@@ -1,5 +1,7 @@
-<div *ngIf="dicService.dictatorObservable">
-    <div *ngFor="let dic of dicService.dictatorObservable| async">
+<app-create-dictator></app-create-dictator>
+
+<div *ngIf="dicService.dictatorObservable$">
+    <div *ngFor="let dic of dicService.dictatorObservable$| async">
         <div [routerLink]="['dictator', dic.twitterKey]" class="card dictatorCard d-flex">
 
             <div class="userProfile">
@@ -24,7 +26,7 @@
                     </div>
                 </div>
                 <!-- Live tweets -->
-                <div *ngIf="dic.tweets | async; let tweet">
+                <div *ngIf="dic.tweets$ | async; let tweet">
                     <div *ngIf="(tweet[tweet.length-1]); let latestTweet">
                         <div class="card-content cardContentSpacing">
                             <label>

@@ -9,36 +9,33 @@ import { TwitterMessage } from './interfaces/twitter-message';
   providedIn: 'root'
 })
 export class TweetService {
-  myWebSocket: WebSocketSubject<TwitterMessage> = webSocket('ws://127.0.0.1:7890/tweet');
+  myWebSocket$: WebSocketSubject<TwitterMessage> = webSocket('ws://127.0.0.1:7890/tweet');
 
   constructor(private dictatorService: DictatorService) {
 
     //Subscribe to the websocket, and send the tweet to the correct dictator
-    this.myWebSocket.asObservable().subscribe((data) => {
-      next:
-      dictatorService.dictatorObservable.subscribe((dicData: Dictator[]) => {
+    this.myWebSocket$.asObservable().subscribe((data) => {
+      next: {
+        let dicData = dictatorService.dictatorObservable$.getValue();
         dicData.forEach(dic => {
 
+          //If the tweet matches the dictator, then add to their observable
           if (data != null && dic.twitterKey == data.Client) {
 
             console.log("TWEET DATA", data.Client);
-            if(dic.tweets == null){
-              dic.tweets = new BehaviorSubject<TwitterMessage[]>([] as TwitterMessage[]);
-            }            
-            
-            let newTweetList: TwitterMessage[] = dic.tweets.getValue();
+            if (dic.tweets$ == null) {
+              dic.tweets$ = new BehaviorSubject<TwitterMessage[]>([] as TwitterMessage[]);
+            }
+
+            let newTweetList: TwitterMessage[] = dic.tweets$.getValue();
             newTweetList.push(data);
-            dic.tweets.next(newTweetList);
+            dic.tweets$.next(newTweetList);
           }
         })
-      });
+      }
 
     });
 
   }
 
-  getTweets() {
-
-
-  }
 }
