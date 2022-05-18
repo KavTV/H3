@@ -1,0 +1,16 @@
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.exe
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.deps.json
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.dll
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\bin\Debug\net5.0\FirstTest.pdb
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.dll
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\refint\FirstTest.dll
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.pdb
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\FirstTest.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\UnitTests\FirstTest\FirstTest\obj\Debug\net5.0\ref\FirstTest.dll
