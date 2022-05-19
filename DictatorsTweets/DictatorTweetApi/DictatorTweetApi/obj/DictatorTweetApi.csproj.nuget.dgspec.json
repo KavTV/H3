@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kaspe\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj": {}
+    "C:\\Users\\krj\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kaspe\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj": {
+    "C:\\Users\\krj\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kaspe\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj",
+        "projectUniqueName": "C:\\Users\\krj\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj",
         "projectName": "DictatorTweetApi",
-        "projectPath": "C:\\Users\\kaspe\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj",
-        "packagesPath": "C:\\Users\\kaspe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kaspe\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\obj\\",
+        "projectPath": "C:\\Users\\krj\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\DictatorTweetApi.csproj",
+        "packagesPath": "C:\\Users\\krj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\krj\\Documents\\Github\\H3\\DictatorsTweets\\DictatorTweetApi\\DictatorTweetApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\kaspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\krj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -77,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
