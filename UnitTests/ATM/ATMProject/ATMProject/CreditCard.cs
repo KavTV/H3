@@ -9,14 +9,9 @@ namespace ATMProject
     public class CreditCard
     {
         public int CardId;
-        public IAccount Account;
 
         public int pinCode;
 
-        public bool CheckPin(double pin)
-        {
-            return pinCode == pin;
-        }
 
     }
 }

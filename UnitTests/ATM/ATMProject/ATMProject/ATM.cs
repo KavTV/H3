@@ -10,14 +10,14 @@ namespace ATMProject
     {
         public CreditCard insertedCard;
 
-        public bool WithdrawMoney(double amount)
+        public bool WithdrawMoney(double amount, Bank bank)
         {
-            return insertedCard.Account.WithdrawMoney(amount);
+            throw new NotImplementedException();
         }
 
         public bool CheckPin(int pin)
         {
-            return insertedCard.CheckPin(pin);
+            throw new NotImplementedException();
         }
 
     }

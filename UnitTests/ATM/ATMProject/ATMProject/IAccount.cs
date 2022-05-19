@@ -9,5 +9,6 @@ namespace ATMProject
     public interface IAccount
     {
         bool WithdrawMoney(double amount);
+        bool CheckPin(int pin);
     }
 }

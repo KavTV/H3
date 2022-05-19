@@ -12,7 +12,11 @@ namespace ATMProject
 
         public bool WithdrawMoney(double amount, IAccount acc)
         {
-            return false;
+            return acc.WithdrawMoney(amount);
+        }
+        public bool CheckPin(int pin, IAccount acc)
+        {
+            return acc.CheckPin(pin);
         }
     }
 }
