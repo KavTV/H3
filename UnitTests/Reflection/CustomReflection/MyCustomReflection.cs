@@ -16,11 +16,11 @@ namespace CustomReflection
         public MethodInfo[] GetMethods(Type typ)
         {
             //Get all methods in namespace
-            return typ.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance);
+            return typ.GetMethods(BindingFlags.NonPublic |BindingFlags.Public | BindingFlags.Instance);
         }
         public MethodInfo GetMethod(string methodName,Type typ)
         {
-            foreach (var item in typ.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance))
+            foreach (var item in typ.GetMethods(BindingFlags.NonPublic | BindingFlags.Public| BindingFlags.Instance))
             {
                 if (item.Name == methodName)
                 {
@@ -52,7 +52,7 @@ namespace CustomReflection
         public ConstructorInfo GetConstructor(Type classType, Type[] paramTypes)
         {
             //Get Constructor
-            var constructors = classType.GetConstructors();
+            var constructors = classType.GetConstructors(BindingFlags.NonPublic| BindingFlags.Public | BindingFlags.Instance);
             foreach (var constructor in constructors)
             {
                 var parameters = constructor.GetParameters();

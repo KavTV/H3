@@ -2,7 +2,6 @@ using CustomReflection;
 using NUnit.Framework;
 using System;
 using System.Reflection;
-using PrivateMethods;
 using System.Linq;
 
 namespace PrivateMethods.UnitTests
