@@ -9,6 +9,12 @@ namespace ATMProject
     public class Account : IAccount
     {
         double money = 50000;
+        CreditCard creditCard;
+
+        public bool CheckPin(int pin)
+        {
+            return creditCard.pinCode == pin;
+        }
 
         public bool WithdrawMoney(double amount)
         {
