@@ -11,7 +11,7 @@ namespace HashingTask
         {
             while (true)
             {
-
+                //User chooses between hashing only or hmac
                 if (StartMenu() == "1")
                 {
                     //THIS IS FOR HASHING
@@ -26,9 +26,11 @@ namespace HashingTask
                     Stopwatch sw = new Stopwatch();
 
                     sw.Start();
+                    //Hash message using the selected algo
                     byte[] hash = hashAlgo.ComputeHash(message);
                     sw.Stop();
 
+                    //Convert to base 64 and HEX
                     string convertBase = Convert.ToBase64String(hash);
                     string convertString = Convert.ToHexString(hash);
 
@@ -53,6 +55,7 @@ namespace HashingTask
                     byte[] computed = ComputeMAC(hmac, message);
                     sw.Stop();
 
+                    //Convert to base 64 and HEX
                     string convertBase = Convert.ToBase64String(computed);
                     string convertString = Convert.ToHexString(computed);
 
@@ -158,7 +161,7 @@ namespace HashingTask
 
         static bool CheckAuthenticity(HMAC hmac, byte[] message, byte[] mac)
         {
-
+            //Compare 
             if (CompareByteArrays(hmac.ComputeHash(message), mac, hmac.HashSize / 8) == true)
             {
                 return true;
@@ -182,6 +185,7 @@ namespace HashingTask
 
         static byte[] GenerateKey()
         {
+            //Generate a random key
             RandomNumberGenerator rnd = RandomNumberGenerator.Create();
             byte[] key = new byte[16];
             rnd.GetBytes(key);
