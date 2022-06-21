@@ -1,0 +1,16 @@
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.exe
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.deps.json
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\bin\Debug\net5.0\HashingTask.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\refint\HashingTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\HashingTask.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\Encryption\HashingTask\HashingTask\obj\Debug\net5.0\ref\HashingTask.dll
