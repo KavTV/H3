@@ -19,18 +19,15 @@ namespace SecurePasswordTask
                 return false;
             }
 
-            //hash the password user just entered, with found user salt
-            string newHash = PBKDF2.ComputeHash(password, foundUser.Salt, foundUser.Iterations);
-
-            //If hashes match, it is the same password
-            if (newHash == foundUser.Hash)
+            return PBKDF2.VerifyHash(password, foundUser);
+        }
+        public static bool UserExist(string username)
+        {
+            if (DAL.GetUser(username) != null)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         public static void LockUser(string username)
         {

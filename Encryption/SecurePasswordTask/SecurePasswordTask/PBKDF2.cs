@@ -17,7 +17,7 @@ namespace SecurePasswordTask
 
                 randomGenerator.GetBytes(salt);
 
-                return Encoding.ASCII.GetString(salt);
+                return Convert.ToBase64String(salt);
             }
 
         }
@@ -30,7 +30,23 @@ namespace SecurePasswordTask
             //Setting the iterations and hashing algorithm in the constructor
             using (Rfc2898DeriveBytes hashGenerator = new Rfc2898DeriveBytes(passwordBytes, saltBytes, iterations, HashAlgorithmName.SHA512))
             {
-                return Encoding.ASCII.GetString(hashGenerator.GetBytes(32));
+                return Convert.ToBase64String(hashGenerator.GetBytes(32));
+            }
+        }
+
+        public static bool VerifyHash(string password, User user)
+        {
+            //hash the password user just entered, with found user salt
+            string newHash = ComputeHash(password, user.Salt, user.Iterations);
+
+            //If hashes match, it is the same password
+            if (newHash == user.Hash)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

@@ -23,21 +23,32 @@ namespace SecurePasswordTask
 
                     Console.WriteLine("Enter username");
                     string username = Console.ReadLine();
-                    while (tries < maxTries && loggedIn == false)
-                    {
-                        loggedIn = LogIn(username);
 
-                        if (loggedIn == true)
+                    //Only try to log in if user exists
+                    if (SecureManager.UserExist(username))
+                    {
+                        while (tries < maxTries && loggedIn == false)
                         {
-                            break;
-                        }
-                        tries++;
+                            loggedIn = LogIn(username);
 
-                        Console.WriteLine($"You have {maxTries - tries} tries left");
+                            if (loggedIn == true)
+                            {
+                                break;
+                            }
+                            tries++;
+
+                            Console.WriteLine($"You have {maxTries - tries} tries left");
+                        }
+                        if (loggedIn == false)
+                        {
+                            //Eventually add a timer before user can log in again
+                            SecureManager.LockUser(username);
+                            Console.WriteLine($"{username} blocked");
+                        }
                     }
-                    if (loggedIn == false)
+                    else
                     {
-                        SecureManager.LockUser(username);
+                        Console.WriteLine("User does not exist or is blocked");
                     }
                 }
             }
