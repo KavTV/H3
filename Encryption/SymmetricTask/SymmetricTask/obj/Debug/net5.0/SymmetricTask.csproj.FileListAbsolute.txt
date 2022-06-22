@@ -1,0 +1,16 @@
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.exe
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.deps.json
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\bin\Debug\net5.0\SymmetricTask.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\refint\SymmetricTask.dll
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\SymmetricTask.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\Encryption\SymmetricTask\SymmetricTask\obj\Debug\net5.0\ref\SymmetricTask.dll
