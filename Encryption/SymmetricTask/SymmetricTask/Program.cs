@@ -18,7 +18,7 @@ namespace SymmetricTask
 
                 if (SelectTypeMenu() == "1")
                 {
-                    string msg = AskForMessage();
+                    string msg = AskForMessage("Write a message");
 
                     //Start timer and begin encryption
                     sw.Start();
@@ -31,7 +31,7 @@ namespace SymmetricTask
                 }
                 else
                 {
-                    string msg = AskForMessage();
+                    string msg = AskForMessage("Write message to decrypt");
 
                     Console.WriteLine("Write the key");
                     string key = Console.ReadLine();
@@ -69,9 +69,9 @@ namespace SymmetricTask
                 $"\nTIME: {time}");
         }
 
-        static string AskForMessage()
+        static string AskForMessage(string msg)
         {
-            Console.WriteLine("Write a message");
+            Console.WriteLine(msg);
             return Console.ReadLine();
         }
 
