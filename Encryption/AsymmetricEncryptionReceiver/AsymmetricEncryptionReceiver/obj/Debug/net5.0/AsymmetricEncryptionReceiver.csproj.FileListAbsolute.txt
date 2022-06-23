@@ -1,0 +1,16 @@
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.exe
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.deps.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\bin\Debug\net5.0\AsymmetricEncryptionReceiver.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\refint\AsymmetricEncryptionReceiver.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\AsymmetricEncryptionReceiver.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionReceiver\AsymmetricEncryptionReceiver\obj\Debug\net5.0\ref\AsymmetricEncryptionReceiver.dll

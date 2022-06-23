@@ -1,0 +1,16 @@
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.exe
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.deps.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.runtimeconfig.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.runtimeconfig.dev.json
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\bin\Debug\net5.0\AsymmetricEncryptionSender.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.csproj.AssemblyReference.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.AssemblyInfoInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.AssemblyInfo.cs
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.csproj.CoreCompileInputs.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\refint\AsymmetricEncryptionSender.dll
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.pdb
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\AsymmetricEncryptionSender.genruntimeconfig.cache
+C:\Users\krj\Documents\Github\H3\Encryption\AsymmetricEncryptionSender\AsymmetricEncryptionSender\obj\Debug\net5.0\ref\AsymmetricEncryptionSender.dll
